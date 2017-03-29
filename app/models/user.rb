@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name, presence: true
-  validates :last_name :presence: true
+  validates :last_name, presence: true
 
   #   t.string   "email",                  default: "", null: false
   #   t.string   "encrypted_password",     default: "", null: false

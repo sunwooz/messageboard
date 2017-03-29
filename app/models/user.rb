@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, presence: true
+  validates :last_name :presence: true
+
   #   t.string   "email",                  default: "", null: false
   #   t.string   "encrypted_password",     default: "", null: false
   #   t.string   "reset_password_token"

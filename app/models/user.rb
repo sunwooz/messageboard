@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   has_many :posts
+  has_many :comments
 
   #   t.string   "email",                  default: "", null: false
   #   t.string   "encrypted_password",     default: "", null: false

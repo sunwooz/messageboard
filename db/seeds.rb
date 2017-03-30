@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Post.create(title: 'This is a test', author: User.first.id, body: 'this is the body of the text yo')
-Post.create(title: 'This is a test2', author: User.first.id, body: 'this is the body of the text yo')
-Post.create(title: 'This is a test3', author: User.first.id, body: 'this is the body of the text yo')
-Post.create(title: 'This is a test4', author: User.first.id, body: 'this is the body of the text yo')
+Post.create(title: 'This is a test', user_id: User.first.id, body: 'this is the body of the text yo')
+Post.create(title: 'This is a test2', user_id: User.first.id, body: 'this is the body of the text yo')
+Post.create(title: 'This is a test3', user_id: User.first.id, body: 'this is the body of the text yo')
+Post.create(title: 'This is a test4', user_id: User.first.id, body: 'this is the body of the text yo')

@@ -15,4 +15,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require components
+//= require bootstrap-sprockets
 //= require_tree .

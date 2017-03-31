@@ -12,5 +12,5 @@ ReactOnRails.register({
   Header,
   PostList,
   CreatePostButton,
-  Post
+  Post,
 });

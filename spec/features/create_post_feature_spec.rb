@@ -11,7 +11,7 @@ feature "User creates new post", js: true do
     click_button 'Create Post'
     fill_in "title", with: 'This is a test'
     fill_in "body", with: 'body text'
-    click_link 'Create'
+    click_button 'Submit'
 
     page.should have_content('Post created')
     # expect(page).to have_content('body text')

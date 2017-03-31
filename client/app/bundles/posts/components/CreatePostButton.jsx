@@ -22,6 +22,12 @@ export default class CreatePostButton extends React.Component {
     var name = e.target.name;
     var obj = {};
     obj[name] = e.target.value;
+    this.props.onUserInput(obj);
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onFormSubmit();
   }
 
   render() {
@@ -46,7 +52,8 @@ export default class CreatePostButton extends React.Component {
           </Modal.Header>
           <Modal.Body>
 
-            <form>
+            <form onSubmit={this.handleSubmit}>
+              <input type='hidden' name='authenticity_token' value={this.props.authenticity_token} />
               <FormGroup controlId="formBasicText">
                 <ControlLabel>Title</ControlLabel>
                 <FormControl

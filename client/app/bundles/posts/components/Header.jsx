@@ -41,18 +41,12 @@ export default class Header extends React.Component {
       this.handleNewPost(data);
     }.bind(this));
 
-    // fetch('/posts', {
-    //   method: 'POST',
-    //   body: post
-    // }).then(function(data) {
-    //   // this.addNewPost(data);
-    // }.bind(this));
   }
 
   render() {
     return (
       <div>
-        <h1>This is the header</h1>
+        <h1>Real Estate Message Board</h1>
         <CreatePostButton
           ref="createpostbutton" 
           onUserInput={this.handleUserInput}

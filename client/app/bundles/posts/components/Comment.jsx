@@ -5,7 +5,7 @@ export default class Comment extends React.Component {
     var comment = this.props.comment;
     return (
       <div>
-        <h1>Made by: {comment.user_id}</h1>
+        <b>Made by: {comment.user_id}</b>
         <p>{comment.body}</p>
       </div>
     )

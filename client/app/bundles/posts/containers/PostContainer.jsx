@@ -13,11 +13,12 @@ export default class PostsContainer extends React.Component {
   }
 
   handleAddNewPost = (post) => {
-    console.log('posts yo');
-    console.log(this.state.posts);
     var posts = update(this.state.posts, { $push: [post] });
+
     this.setState({
-      posts: posts
+      posts: posts.sort(function(a,b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+      })
     });
   }
 

@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
   #   t.inet     "last_sign_in_ip"
   #   t.datetime "created_at",                          null: false
   #   t.datetime "updated_at",                          null: false
+
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
 end

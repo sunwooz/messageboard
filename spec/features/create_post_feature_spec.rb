@@ -1,20 +1,30 @@
-require 'test_helper'
+# require 'test_helper'
 
 feature "User creates new post", js: true do
   before(:all) do
     Capybara.current_driver = :webkit
+
+#     visit '/'
+#     click_link 'Login'
+#     # find('a.login-link').click
+#     # fill_in 'email', with: 'yangsunwoo@gmail.com'
+#     # fill_in 'password', with: 'jjjjjj'
+#     # click_link 'Log In'
   end
 
-  it "should create the post and show the new post", js: true do
-    user = FactoryGirl.build(:user)
-    visit '/'
-    click_button 'Create Post'
-    fill_in "title", with: 'This is a test'
-    fill_in "body", with: 'body text'
-    click_button 'Submit'
+#   it "should create the post and show the new post", js: true do
+#     # visit '/'
+#     # click_button 'Create Post'
+#     # fill_in "title", with: 'This is a unique test'
+#     # fill_in "body", with: 'body text'
+#     # click_button 'Submit'
+#     # find('button.close').click
 
-    page.should have_content('Post created')
-    # expect(page).to have_content('body text')
+#     page.should have_content('unique')
+#   end
+
+  it "should be owned by the correct author" do
+    
   end
 
-end
+# end

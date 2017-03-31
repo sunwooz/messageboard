@@ -22,7 +22,9 @@ export default class CommentsContainer extends React.Component {
   addNewComment = (comment) => {
     var comments = update(this.state.comments, { $push: [comment] });
     this.setState({
-      comments: comments
+      comments: comments.sort(function(a,b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+      })
     });
   }
 

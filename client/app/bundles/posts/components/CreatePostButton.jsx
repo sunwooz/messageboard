@@ -4,7 +4,7 @@ export default class CreatePostButton extends React.Component {
   render() {
     return (
       <div>
-        <button>Im A button</button>
+        <button>Create Posts</button>
       </div>
     )
   }

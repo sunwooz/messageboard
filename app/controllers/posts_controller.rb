@@ -12,6 +12,11 @@ class PostsController < ApplicationController
     render json: @post
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+  end
+
   private
 
   def post_params

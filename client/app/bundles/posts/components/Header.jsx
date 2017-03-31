@@ -34,7 +34,7 @@ export default class Header extends React.Component {
     $.post('/posts',
       {
         post: post,
-        header: header
+        header: header,
       }
     ).done(function(data) {
       this.refs.createpostbutton.close();

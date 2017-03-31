@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import CreatePostButton from '../components/CreatePostButton';
 
 export default class Header extends React.Component {
   render() {

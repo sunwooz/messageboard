@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Post from '../components/Post';
 
 export default class PostList extends React.Component {
   render() {

@@ -24,4 +24,13 @@ describe User do
       expect(full_name).to eq(name)
     end
   end
+
+  context '.destroy' do
+    it 'should also destroy all associated posts' do
+      user = FactoryGirl.create(:user)
+      post = FactoryGirl.create(:post)
+
+      expect{user.destroy}.to change{Post.count}.by(-1)
+    end
+  end
 end

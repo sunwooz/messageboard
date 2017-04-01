@@ -22,4 +22,17 @@ describe Post do
     end
   end
 
+  context '#generate_body_html' do
+    let(:post) { FactoryGirl.create(:post) }
+
+    it "converts markdown to html" do
+      expect(post.generate_body_html).to include('<p>')
+    end
+
+    it "populates the post body_html column" do
+      post.generate_body_html
+      expect(post.body_html).to be_truthy
+    end
+  end
+
 end

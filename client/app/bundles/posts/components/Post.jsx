@@ -10,9 +10,7 @@ export default class Post extends React.Component {
   render() {
     var post = this.props.post;
     var post_link = '/posts/' + post.id
-    var body_html_string = post.body_html;
-    var htmlObject = document.createElement('div');
-    htmlObject.innerHTML = body_html_string;
+    
     return (
       <div>
         <h1><a href={post_link}>{post.title}</a></h1>

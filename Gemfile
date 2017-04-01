@@ -29,6 +29,10 @@ gem 'react_on_rails'
 gem 'bootstrap-sass'
 gem 'faker'
 gem 'simplecov', :require => false, :group => :test
+gem 'redcarpet'
+gem 'markdown-rails'
+gem 'nokogiri'
+gem 'pygments.rb'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

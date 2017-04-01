@@ -5,6 +5,25 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+
+  before_save :generate_body_html
+
+  def generate_body_html
+    return if self.body.blank?
+    logger.debug "generate_body_html has been called"
+    markdown = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML.new(:hard_wrap => true),
+      :no_intra_emphasis => true,
+      :autolink => true,
+      :fenced_code_blocks => true)
+
+    self.body_html = Redcarpet::Render::SmartyPants.render(
+      SyntaxHighlighter.new(
+        markdown.render(self.body)
+      ).to_s
+    )
+  end
+
 end
 
 # t.datetime "created_at", null: false

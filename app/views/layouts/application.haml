@@ -7,8 +7,8 @@
     = csrf_meta_tags
   %body
 
-    .container
-      .col-xs-5
+    .container-fluid
+      .col-xs-12
         #user_nav
           - if user_signed_in?
             Logged in as

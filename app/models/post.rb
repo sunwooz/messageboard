@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   before_save :generate_body_html
 

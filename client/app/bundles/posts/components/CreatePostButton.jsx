@@ -44,7 +44,7 @@ export default class CreatePostButton extends React.Component {
 
     return (
       <div>
-        <button onClick={this.open}>Create Posts</button>
+        <Button onClick={this.open} bsStyle="success">Create Post</Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>

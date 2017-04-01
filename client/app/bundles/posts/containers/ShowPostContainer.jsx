@@ -11,7 +11,7 @@ export default class ShowPostContainer extends React.Component {
     var post = this.props.post;
     return (
       <div>
-        <Post post={post} />
+        <Post post={post} current_user={this.props.current_user} />
         <CommentsContainer comments={this.props.comments} post={post} />
       </div>
     )

@@ -12,6 +12,14 @@ class PostsController < ApplicationController
     render json: @post
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    if current_user && current_user.id == @post.user_id
+      @post.destroy
+    end
+    render json: @post
+  end
+
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.order('created_at ASC')

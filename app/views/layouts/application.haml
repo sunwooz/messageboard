@@ -10,6 +10,7 @@
     .container-fluid
       .col-xs-12
         #user_nav
+          = link_to 'Home', root_path
           - if user_signed_in?
             Logged in as
             = succeed "." do

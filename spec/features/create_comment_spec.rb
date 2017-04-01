@@ -14,7 +14,7 @@ feature "User creates a new Comment", js: true do
     Comment.destroy_all
   end
 
-  it "should create a new comment" do
+  it "should create a new comment", js: true do
     visit "/"
     click_link 'Post title'
     click_button 'Create Comment'

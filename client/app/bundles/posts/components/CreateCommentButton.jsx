@@ -42,9 +42,13 @@ export default class CreateCommentButton extends React.Component {
       </Tooltip>
     );
 
+    var style = {
+      'margin-bottom': '20px'
+    }
+
     return (
       <div>
-        <Button onClick={this.open} bsStyle="success">Create Comment</Button>
+        <Button style={style} onClick={this.open} bsStyle="success">Create Comment</Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>

@@ -33,6 +33,7 @@ gem 'redcarpet'
 gem 'markdown-rails'
 gem 'nokogiri'
 gem 'pygments.rb'
+gem 'friendly_id'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @comments = @post.comments.order('created_at ASC')
   end
 

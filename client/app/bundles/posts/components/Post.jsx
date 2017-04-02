@@ -18,7 +18,8 @@ export default class Post extends React.Component {
 
   render() {
     var post = this.props.post;
-    var post_link = '/posts/' + post.id
+    console.log(post);
+    var post_link = '/posts/' + post.slug;
     var buttons = '';
     var current_user = this.props.current_user;
 

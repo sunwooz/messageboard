@@ -73,7 +73,7 @@ export default class CreatePostButton extends React.Component {
                   onChange={this.handleChange}
                 />
                 <FormControl.Feedback />
-                <HelpBlock>Do not proofread</HelpBlock>
+                <HelpBlock>Markdown Enabled!</HelpBlock>
               </FormGroup>
 
               <Button type="submit">

@@ -58,7 +58,6 @@ export default class Post extends React.Component {
         <p>Author: {this.state.first_name} {this.state.last_name}</p>
         <p className='test-name'></p>
         <div className='post-body' dangerouslySetInnerHTML={this.rawMarkup()}></div>
-        <hr>
       </div>
     )
   }

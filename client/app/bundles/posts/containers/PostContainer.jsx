@@ -24,9 +24,11 @@ export default class PostsContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header addNewPost={this.handleAddNewPost} />
-        <PostList posts={this.state.posts} current_user={this.props.current_user} />
+      <div className="row">
+        <div className="col-xs-8 col-xs-offset-2">
+          <Header addNewPost={this.handleAddNewPost} />
+          <PostList posts={this.state.posts} current_user={this.props.current_user} />
+        </div>
       </div>
     )
   }

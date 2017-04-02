@@ -43,27 +43,21 @@ export default class Post extends React.Component {
     }.bind(this));
   }
 
+  componentDidMount() {
+    $('img').css({'width': '100%'});
+  }
+
   render() {
     var post = this.props.post;
-    console.log(post);
     var post_link = '/posts/' + post.slug;
-    // var buttons = '';
     var current_user = this.props.current_user;
 
-    // if (post.user_id == current_user.id) {
-    //   buttons = this.renderDestroyButton(post_link);
-    // }
-
-    var user_id = post.user_id;
-    console.log(user_id);
-    // this.getUserName(user_id);
-    
     return (
       <div>
         <h1><a href={post_link}>{post.title}</a></h1>
         <p>Author: {this.state.first_name} {this.state.last_name}</p>
         <p className='test-name'></p>
-        <div dangerouslySetInnerHTML={this.rawMarkup()}></div>
+        <div className='post-body' dangerouslySetInnerHTML={this.rawMarkup()}></div>
       </div>
     )
   }

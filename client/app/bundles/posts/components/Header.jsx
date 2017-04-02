@@ -43,14 +43,26 @@ export default class Header extends React.Component {
 
   }
 
-  render() {
+  renderCreatePostButton = () => {
     return (
       <div>
-        <h1>Real Estate Message Board</h1>
         <CreatePostButton
           ref="createpostbutton" 
           onUserInput={this.handleUserInput}
           onFormSubmit={this.handleFormSubmit} />
+      </div>
+    )
+  }
+
+  render() {
+    var createButton = '';
+    if ( this.props.current_user != undefined ) {
+      var createButton = this.renderCreatePostButton();
+    }
+    return (
+      <div>
+        <h1>Real Estate Message Board</h1>
+        { createButton }
       </div>
     )
   }

@@ -34,6 +34,7 @@ gem 'markdown-rails'
 gem 'nokogiri'
 gem 'pygments.rb'
 gem 'friendly_id'
+gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

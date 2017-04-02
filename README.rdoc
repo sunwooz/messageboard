@@ -9,10 +9,11 @@ Overview
 3. Hosted on Heroku https://messageboard-bk.herokuapp.com/
 4. Has markdown capability for posts
 5. Uses friendly_id for prettier urls
+6. Uses the heroku/ruby and nodejs buildpack for deployment.
 
 
-Requirements
-------------
+Specs
+-----
 
 1. Users can register and then must be authenticated before logging in (we use Devise).
 Users should have an email (used for logging in), and a first and last name at a minimum.

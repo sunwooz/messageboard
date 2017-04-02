@@ -2,8 +2,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.save
+    if current_user
+      @comment.user_id = current_user.id
+      @comment.save
+    end
     render json: @comment
   end
 

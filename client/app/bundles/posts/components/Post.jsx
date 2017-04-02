@@ -16,7 +16,11 @@ export default class Post extends React.Component {
 
   rawMarkup(){
     var rawMarkup = this.props.post.body_html;
-    return { __html: rawMarkup };
+    var render;
+    if ( window.location.pathname != '/' ) {
+      render = { __html: rawMarkup };
+    }
+    return render;
   }
 
   renderDestroyButton(post_link) {
@@ -51,6 +55,7 @@ export default class Post extends React.Component {
     var post = this.props.post;
     var post_link = '/posts/' + post.slug;
     var current_user = this.props.current_user;
+
 
     return (
       <div>

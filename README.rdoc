@@ -1,6 +1,19 @@
 Message Board React_On_Rails App
 ================================
 
+Overview
+--------
+
+1. The react code lives under /client/
+2. Uses the react_on_rails gem for react and webpack integration.
+3. Hosted on Heroku https://messageboard-bk.herokuapp.com/
+4. Has markdown capability for posts
+5. Uses friendly_id for prettier urls
+
+
+Requirements
+------------
+
 1. Users can register and then must be authenticated before logging in (we use Devise).
 Users should have an email (used for logging in), and a first and last name at a minimum.
 You can add things like a description or “about me” if you’d like.

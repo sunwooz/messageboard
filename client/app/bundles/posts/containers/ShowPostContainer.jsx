@@ -1,7 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-// import Header from '../components/Header';
-// import PostList from '../components/PostList';
-// import update from 'immutability-helper';
 import Post from '../components/Post';
 import CommentsContainer from '../containers/CommentsContainer';
 

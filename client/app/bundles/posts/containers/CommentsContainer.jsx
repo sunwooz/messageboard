@@ -1,6 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-// import Header from '../components/Header';
-// import PostList from '../components/PostList';
 import update from 'immutability-helper';
 import CreateCommentButton from '../components/CreateCommentButton';
 import Comment from '../components/Comment';
@@ -59,7 +57,6 @@ export default class CommentsContainer extends React.Component {
 
   render() {
     var comments = this.state.comments;
-    console.log(comments);
 
     return (
       <div>

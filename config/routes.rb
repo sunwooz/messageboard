@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {:registrations => "users/registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
+  devise_scope :user do
+    get '/users/:user_id' => 'registrations#show'
+  end
   root to: 'posts#index'
 
   resources :posts do

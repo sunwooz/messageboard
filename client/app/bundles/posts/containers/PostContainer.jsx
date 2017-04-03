@@ -1,42 +1,60 @@
 import React, { PropTypes, Component } from 'react';
-import Header from '../containers/Header';
-import PostList from '../components/PostList';
-import update from 'immutability-helper';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import ReactOnRails from 'react-on-rails';
+import Post from '../components/Post';
 
 export default class PostContainer extends React.Component {
 
-  constructor(props, context) {
-    super(props);
+  constructor(props) {
+    super(props)
     this.state = {
-      posts: this.props.posts
+      first_name: '',
+      last_name: ''
     }
+
+    this.getUserName(this.props.post.user_id);
   }
 
-  handleAddNewPost = (post) => {
-    var posts = update(this.state.posts, { $push: [post] });
+  rawMarkup(){
+    var rawMarkup = this.props.post.body_html;
+    var render;
+    if ( window.location.pathname != '/' ) {
+      render = { __html: rawMarkup };
+    }
+    return render;
+  }
 
-    this.setState({
-      posts: posts.sort(function(a,b) {
-        return new Date(b.created_at) - new Date(a.created_at);
+  renderDestroyButton(post_link) {
+    return (
+      <ButtonToolbar>
+        <Button bsStyle="danger" href={post_link} data-method='delete' data-remote='true' rel='nofollow'>Destroy</Button>
+      </ButtonToolbar>
+    )
+  }
+
+  getUserName(user_id) {
+    var header = ReactOnRails.authenticityHeaders();
+    var user;
+
+    $.get('/users/' + user_id, { header: header })
+    .done(function(data) {
+      this.setState({
+        first_name: data.first_name,
+        last_name: data.last_name
       })
-    });
+    }.bind(this));
   }
 
   render() {
     var current_user = this.props.current_user;
 
     return (
-      <div className="row">
-        <div className="col-xs-8 col-xs-offset-2">
-          <Header addNewPost={this.handleAddNewPost} current_user={current_user} />
-          <PostList posts={this.state.posts} current_user={current_user} />
-        </div>
-      </div>
+      <Post post={this.props.post} first_name={this.state.first_name} last_name={this.state.last_name} rawMarkup={this.rawMarkup()} />
     )
   }
 }
 
 PostContainer.propTypes = {
-  posts: PropTypes.array.isRequired,
+  post: PropTypes.object.isRequired,
   current_user: PropTypes.object
 }

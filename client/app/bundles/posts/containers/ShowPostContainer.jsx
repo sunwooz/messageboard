@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Post from '../components/Post';
+import PostContainer from '../containers/PostContainer';
 import CommentsContainer from '../containers/CommentsContainer';
 
 export default class ShowPostContainer extends React.Component {
@@ -9,7 +9,7 @@ export default class ShowPostContainer extends React.Component {
     return (
       <div>
         <div className="col-xs-8">
-          <Post post={post} current_user={this.props.current_user} />
+          <PostContainer post={post} current_user={this.props.current_user} />
         </div>
         <div className="col-xs-4">
           <CommentsContainer comments={this.props.comments} post={post} current_user={this.props.current_user} />

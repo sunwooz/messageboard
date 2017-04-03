@@ -9,19 +9,21 @@
 
     .container-fluid
       .col-xs-12
-        #user_nav
-          = link_to 'Home', root_path
-          - if user_signed_in?
-            Logged in as
-            = succeed "." do
-              %strong= current_user.email
-            = link_to 'Edit profile', edit_user_registration_path
-            |
-            \#{link_to "Logout", destroy_user_session_path, method: :delete}
-          - else
-            = link_to "Sign up", new_user_registration_path
-            |
-            \#{link_to "Login", new_user_session_path, class: 'login-link'}
-        - flash.each do |name, msg|
-          = content_tag :div, msg, id: "flash_#{name}"
+        #user_nav.col-xs-8.col-xs-offset-2
+          .logo-container
+            = link_to 'Home', root_path, class: 'logo'
+          .navigation-container
+            - if user_signed_in?
+              Logged in as
+              = succeed "." do
+                %strong= current_user.email
+              = link_to 'Edit profile', edit_user_registration_path
+              |
+              \#{link_to "Logout", destroy_user_session_path, method: :delete}
+            - else
+              = link_to "Sign up", new_user_registration_path
+              |
+              \#{link_to "Login", new_user_session_path, class: 'login-link'}
+          - flash.each do |name, msg|
+            = content_tag :div, msg, id: "flash_#{name}"
         = yield

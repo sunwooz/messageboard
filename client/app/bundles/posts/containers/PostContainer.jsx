@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Header from '../components/Header';
+import Header from '../containers/Header';
 import PostList from '../components/PostList';
 import update from 'immutability-helper';
 

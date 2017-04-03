@@ -4,7 +4,7 @@ import PostList from '../components/PostList';
 import Post from '../components/Post';
 import CreatePostButton from '../components/CreatePostButton';
 import PostContainer from '../containers/PostContainer';
-import Header from '../components/Header';
+import Header from '../containers/Header';
 import ShowPostContainer from '../containers/ShowPostContainer';
 import CommentsContainer from '../containers/CommentsContainer';
 import Comment from '../components/Comment';

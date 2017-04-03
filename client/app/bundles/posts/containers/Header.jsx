@@ -55,14 +55,14 @@ export default class Header extends React.Component {
   }
 
   render() {
-    var createButton = '';
+    var createPostButton = '';
     if ( this.props.current_user != undefined ) {
-      var createButton = this.renderCreatePostButton();
+      var createPostButton = this.renderCreatePostButton();
     }
     return (
       <div>
         <h1>Real Estate Message Board</h1>
-        { createButton }
+        { createPostButton }
       </div>
     )
   }

@@ -47,9 +47,9 @@ export default class Post extends React.Component {
     }.bind(this));
   }
 
-  componentDidMount() {
-    $('img').css({'width': '100%'});
-  }
+  // componentDidMount() {
+  //   $('img').css({'width': '100%'});
+  // }
 
   render() {
     var post = this.props.post;

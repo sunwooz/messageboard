@@ -43,7 +43,13 @@ export default class CreateCommentButton extends React.Component {
           <Modal.Body>
 
             <div className="errors">
-              { this.props.errors }
+              { 
+                this.props.errors.map(function(error) {
+                  return (
+                    <p>{error}</p>
+                  )
+                }) 
+              }
             </div>
 
             <form onSubmit={this.handleSubmit}>
@@ -57,19 +63,20 @@ export default class CreateCommentButton extends React.Component {
                   value={this.state.value}
                   placeholder="Enter text"
                   onChange={this.handleChange}
+                  autoFocus
                 />
                 <FormControl.Feedback />
                 <HelpBlock>Do not proofread</HelpBlock>
               </FormGroup>
 
-              <Button type="submit">
+              <Button type="submit" bsStyle="success">
                 Submit
               </Button>
             </form>
 
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+            <Button onClick={this.close} bsStyle="danger">Close</Button>
           </Modal.Footer>
         </Modal>
       </div>

@@ -62,6 +62,7 @@ export default class CreatePostButton extends React.Component {
                   value={this.state.value}
                   placeholder="Enter text"
                   onChange={this.handleChange}
+                  autoFocus
                 />
                 <ControlLabel>Body</ControlLabel>
                 <FormControl
@@ -76,14 +77,14 @@ export default class CreatePostButton extends React.Component {
                 <HelpBlock>Markdown Enabled!</HelpBlock>
               </FormGroup>
 
-              <Button type="submit">
+              <Button type="submit" bsStyle="success">
                 Submit
               </Button>
             </form>
 
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+            <Button onClick={this.close} bsStyle="danger">Close</Button>
           </Modal.Footer>
         </Modal>
       </div>

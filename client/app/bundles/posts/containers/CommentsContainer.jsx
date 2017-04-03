@@ -55,13 +55,29 @@ export default class CommentsContainer extends React.Component {
     }.bind(this));
   }
 
+  renderCreateCommentButton = () => {
+    return (
+      <div>
+        <CreateCommentButton 
+          ref="createcommentbutton" 
+          onUserInput={this.handleUserInput} 
+          onFormSubmit={this.handleFormSubmit} post />
+      </div>
+    )
+  }
+
   render() {
     var comments = this.state.comments;
+
+    var createCommentButton = '';
+    if ( this.props.current_user != undefined ) {
+      var createCommentButton = this.renderCreateCommentButton();
+    }
 
     return (
       <div>
         <h1>Comments go here</h1>
-        <CreateCommentButton ref="createcommentbutton" onUserInput={this.handleUserInput} onFormSubmit={this.handleFormSubmit} post />
+        { createCommentButton }
 
         <div>
           {comments.map(function(comment) {

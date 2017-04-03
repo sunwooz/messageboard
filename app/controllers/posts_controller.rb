@@ -7,9 +7,12 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     @post.user_id = current_user.id
-    @post.save
-
-    render json: @post
+    
+    if current_user && @post.save
+      render json: @post
+    else
+      render json: { errors: @post.errors.full_messages }
+    end
   end
 
   def destroy

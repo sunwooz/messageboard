@@ -9,6 +9,7 @@ export default class Header extends React.Component {
     this.state = {
       title: '',
       body: '',
+      errors: []
     }
   }
 
@@ -18,6 +19,11 @@ export default class Header extends React.Component {
 
   handleUserInput = (obj) => {
     this.setState(obj);
+  }
+
+  errorForPost(response) {
+    var message = JSON.parse(response);
+    this.setState(message);
   }
 
   handleFormSubmit = () => {
@@ -36,9 +42,12 @@ export default class Header extends React.Component {
         post: post,
         header: header,
       }
-    ).done(function(data) {
+    ).success(function(data) {
       this.refs.createpostbutton.close();
       this.handleNewPost(data);
+    }.bind(this))
+    .error(function(xhr, status, error) {
+      this.errorForPost(xhr.responseText);
     }.bind(this));
 
   }
@@ -49,7 +58,8 @@ export default class Header extends React.Component {
         <CreatePostButton
           ref="createpostbutton" 
           onUserInput={this.handleUserInput}
-          onFormSubmit={this.handleFormSubmit} />
+          onFormSubmit={this.handleFormSubmit}
+          errors={this.state.errors} />
       </div>
     )
   }
@@ -70,5 +80,6 @@ export default class Header extends React.Component {
 
 Header.propTypes = {
   addNewPost: PropTypes.func.isRequired,
-  current_user: PropTypes.object
+  current_user: PropTypes.object,
+  errors: PropTypes.array
 }

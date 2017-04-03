@@ -42,6 +42,16 @@ export default class CreatePostButton extends React.Component {
           </Modal.Header>
           <Modal.Body>
 
+            <div className="errors">
+              { 
+                this.props.errors.map(function(error) {
+                  return (
+                    <p>{error}</p>
+                  )
+                }) 
+              }
+            </div>
+
             <form onSubmit={this.handleSubmit}>
               <input type='hidden' name='authenticity_token' value={this.props.authenticity_token} />
               <FormGroup controlId="formBasicText">

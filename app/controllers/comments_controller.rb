@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     if current_user
       @comment.user_id = current_user.id
       if @comment.save
+        flash[:notice] = "Comment Created!"
         render json: @comment
       else
         render json: { errors: @comment.errors.full_messages }

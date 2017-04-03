@@ -35,11 +35,8 @@ export default class Post extends React.Component {
     var header = ReactOnRails.authenticityHeaders();
     var user;
 
-    $.get('/users/' + user_id,
-      {
-        header: header,
-      }
-    ).done(function(data) {
+    $.get('/users/' + user_id, { header: header })
+    .done(function(data) {
       this.setState({
         first_name: data.first_name,
         last_name: data.last_name
@@ -47,20 +44,19 @@ export default class Post extends React.Component {
     }.bind(this));
   }
 
-  // componentDidMount() {
-  //   $('img').css({'width': '100%'});
-  // }
-
   render() {
     var post = this.props.post;
     var post_link = '/posts/' + post.slug;
     var current_user = this.props.current_user;
 
+    var full_name = (
+      <span>{this.state.first_name} {this.state.last_name}</span>
+    )
 
     return (
       <div>
         <h1><a href={post_link}>{post.title}</a></h1>
-        <p>Author: {this.state.first_name} {this.state.last_name}</p>
+        <p>Author: {full_name}</p>
         <p className='test-name'></p>
         <div className='post-body' dangerouslySetInnerHTML={this.rawMarkup()}></div>
       </div>

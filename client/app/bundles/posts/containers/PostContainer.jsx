@@ -37,6 +37,6 @@ export default class PostContainer extends React.Component {
 }
 
 PostContainer.propTypes = {
-  posts: PropTypes.array,
+  posts: PropTypes.array.isRequired,
   current_user: PropTypes.object
 }

@@ -18,5 +18,5 @@ export default class PostList extends React.Component {
 
 PostList.propTypes = {
   current_user: PropTypes.object,
-  posts: PropTypes.array
+  posts: PropTypes.array.isRequired
 }

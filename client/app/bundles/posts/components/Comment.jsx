@@ -39,6 +39,5 @@ export default class Comment extends React.Component {
 }
 
 Comment.propTypes = {
-  comment: PropTypes.object,
-
+  comment: PropTypes.object.isRequired,
 }

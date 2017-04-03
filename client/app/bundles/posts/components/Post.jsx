@@ -69,6 +69,6 @@ export default class Post extends React.Component {
 }
 
 Post.propTypes = {
-  post: PropTypes.object,
+  post: PropTypes.object.isRequired,
   current_user: PropTypes.object
 }

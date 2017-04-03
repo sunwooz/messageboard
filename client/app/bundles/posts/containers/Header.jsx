@@ -69,6 +69,6 @@ export default class Header extends React.Component {
 }
 
 Header.propTypes = {
-  addNewPost: PropTypes.func,
+  addNewPost: PropTypes.func.isRequired,
   current_user: PropTypes.object
 }

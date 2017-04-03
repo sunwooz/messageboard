@@ -92,7 +92,7 @@ export default class CommentsContainer extends React.Component {
 }
 
 CommentsContainer.propTypes = {
-  comments: PropTypes.object,
-  post: PropTypes.object,
+  comments: PropTypes.array.isRequired,
+  post: PropTypes.object.isRequired,
   current_user: PropTypes.object
 }

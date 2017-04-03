@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
         flash[:notice] = "Comment Created!"
         render json: @comment
       else
-        render json: { errors: @comment.errors.full_messages }
+        render json: { errors: @comment.errors.full_messages }, status: 422
       end
     end
   end

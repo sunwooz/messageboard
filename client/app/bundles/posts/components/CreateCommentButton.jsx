@@ -42,6 +42,10 @@ export default class CreateCommentButton extends React.Component {
           </Modal.Header>
           <Modal.Body>
 
+            <div className="errors">
+              { this.props.errors }
+            </div>
+
             <form onSubmit={this.handleSubmit}>
               <input type='hidden' name='authenticity_token' value={this.props.authenticity_token} />
               <FormGroup controlId="formBasicText">

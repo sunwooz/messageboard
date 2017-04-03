@@ -14,7 +14,7 @@ describe Post do
     it { should have_many :comments }
   end
 
-  context 'destroy' do
+  context '#destroy' do
     it 'should also destroy all associated comments' do
       post = FactoryGirl.build(:post)
       comment = FactoryGirl.build(:comment, post_id: post.id)

@@ -10,6 +10,7 @@ export default class CommentsContainer extends React.Component {
     this.state = {
       comments: this.props.comments,
       body: '',
+      errors: []
     }
   }
 
@@ -24,6 +25,12 @@ export default class CommentsContainer extends React.Component {
         return new Date(a.created_at) - new Date(b.created_at);
       })
     });
+  }
+
+  errorForComment(error_message) {
+    // console.log(error_message);
+    var message = JSON.parse(error_message);
+    this.setState(message);
   }
 
   handleFormSubmit = (comment) => {
@@ -48,10 +55,13 @@ export default class CommentsContainer extends React.Component {
         comment: comment,
         header: header
       }
-    ).done(function(data) {
-
+    ).success(function(data, textStatus, xhr) {
       this.refs.createcommentbutton.close();
       this.addNewComment(data);
+      // console.log(xhr.status);
+    }.bind(this))
+    .error(function(xhr, status, error) {
+      this.errorForComment(xhr.responseText);
     }.bind(this));
   }
 
@@ -61,7 +71,8 @@ export default class CommentsContainer extends React.Component {
         <CreateCommentButton 
           ref="createcommentbutton" 
           onUserInput={this.handleUserInput} 
-          onFormSubmit={this.handleFormSubmit} post />
+          onFormSubmit={this.handleFormSubmit}
+          errors={ this.state.errors } />
       </div>
     )
   }
@@ -73,6 +84,8 @@ export default class CommentsContainer extends React.Component {
     if ( this.props.current_user != undefined ) {
       var createCommentButton = this.renderCreateCommentButton();
     }
+
+    // console.log(this.state.errors);
 
     return (
       <div>
@@ -94,5 +107,6 @@ export default class CommentsContainer extends React.Component {
 CommentsContainer.propTypes = {
   comments: PropTypes.array.isRequired,
   post: PropTypes.object.isRequired,
-  current_user: PropTypes.object
+  current_user: PropTypes.object,
+  errors: PropTypes.array
 }

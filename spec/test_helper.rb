@@ -8,8 +8,16 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'factory_girl_rails'
 
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+end
+
 
 Capybara.javascript_driver = :webkit
+
+# RSpec.configure do |config|
+#   config.include Rack::Test::Methods
+# end
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

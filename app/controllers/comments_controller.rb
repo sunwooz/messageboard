@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :logged_in?, only: [:create]
 
   def create
     @comment = Comment.new(comment_params)
@@ -20,8 +21,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  private
+
   def comment_params
     params.require(:comment).permit(:body, :user_id, :post_id)
   end
 
+  def logged_in?
+    if !current_user
+      redirect_to new_user_session_path
+    end
+  end
 end

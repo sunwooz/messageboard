@@ -90,3 +90,8 @@ export default class CreatePostButton extends React.Component {
     )
   }
 }
+
+CreatePostButton.propTypes = {
+  onUserInput: PropTypes.func,
+  onFormSubmit: PropTypes.func
+}

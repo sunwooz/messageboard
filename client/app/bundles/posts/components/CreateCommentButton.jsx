@@ -86,3 +86,9 @@ export default class CreateCommentButton extends React.Component {
     )
   }
 }
+
+CreateCommentButton.propTypes = {
+  onUserInput: PropTypes.func,
+  onFormSubmit: PropTypes.func,
+  authenticity_token: PropTypes.string
+}

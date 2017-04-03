@@ -18,3 +18,9 @@ export default class ShowPostContainer extends React.Component {
     )
   }
 }
+
+ShowPostContainer.propTypes = {
+  post: PropTypes.object,
+  current_user: PropTypes.object,
+  comments: PropTypes.array
+}

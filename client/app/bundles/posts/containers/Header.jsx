@@ -67,3 +67,8 @@ export default class Header extends React.Component {
     )
   }
 }
+
+Header.propTypes = {
+  addNewPost: PropTypes.func,
+  current_user: PropTypes.object
+}

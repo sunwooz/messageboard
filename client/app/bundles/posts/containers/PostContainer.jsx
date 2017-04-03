@@ -3,7 +3,7 @@ import Header from '../containers/Header';
 import PostList from '../components/PostList';
 import update from 'immutability-helper';
 
-export default class PostsContainer extends React.Component {
+export default class PostContainer extends React.Component {
 
   constructor(props, context) {
     super(props);
@@ -23,14 +23,20 @@ export default class PostsContainer extends React.Component {
   }
 
   render() {
+    var current_user = this.props.current_user;
+
     return (
       <div className="row">
         <div className="col-xs-8 col-xs-offset-2">
-          <Header addNewPost={this.handleAddNewPost} current_user={this.props.current_user} />
-          <PostList posts={this.state.posts} current_user={this.props.current_user} />
+          <Header addNewPost={this.handleAddNewPost} current_user={current_user} />
+          <PostList posts={this.state.posts} current_user={current_user} />
         </div>
       </div>
     )
   }
 }
 
+PostContainer.propTypes = {
+  posts: PropTypes.array,
+  current_user: PropTypes.object
+}

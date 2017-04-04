@@ -3,6 +3,8 @@ import update from 'immutability-helper';
 import CreateCommentButton from '../components/CreateCommentButton';
 import Comment from '../components/Comment';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class CommentsContainer extends React.Component {
 
   constructor(props) {
@@ -85,20 +87,31 @@ export default class CommentsContainer extends React.Component {
       var createCommentButton = this.renderCreateCommentButton();
     }
 
-    // console.log(this.state.errors);
+    const style = {
+      position: 'fixed',
+      top: 0,
+      zIndex: -1000,
+      backgroundColor: '#FFFEF4',
+      width: '100%'
+    };
 
     return (
       <div>
         <h1>Comments go here</h1>
         { createCommentButton }
 
-        <div>
-          {comments.map(function(comment) {
-            return (
-              <Comment key={comment.id} comment={comment} />
-            );
-          })}
-        </div>
+        <ReactCSSTransitionGroup
+          transitionName="slidein"
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}>
+
+            {comments.map(function(comment) {
+              return (
+                <Comment style={style} key={comment.id} comment={comment} />
+              );
+            })}
+
+        </ReactCSSTransitionGroup>
       </div>
     )
   }

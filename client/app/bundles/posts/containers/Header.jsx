@@ -15,6 +15,10 @@ export default class Header extends React.Component {
 
   handleNewPost = (post) => {
     this.props.addNewPost(post);
+    this.setState({
+      title: '',
+      body: ''
+    })
   }
 
   handleUserInput = (obj) => {

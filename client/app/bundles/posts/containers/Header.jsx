@@ -17,7 +17,8 @@ export default class Header extends React.Component {
     this.props.addNewPost(post);
     this.setState({
       title: '',
-      body: ''
+      body: '',
+      errors: []
     })
   }
 

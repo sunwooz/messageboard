@@ -26,7 +26,8 @@ export default class CommentsContainer extends React.Component {
       comments: comments.sort(function(a,b) {
         return new Date(a.created_at) - new Date(b.created_at);
       }),
-      body: ''
+      body: '',
+      errors: []
     });
   }
 

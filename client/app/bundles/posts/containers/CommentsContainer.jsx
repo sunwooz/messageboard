@@ -81,13 +81,16 @@ export default class CommentsContainer extends React.Component {
     )
   }
 
+  userSignedIn() {
+    var userExists = false;
+    if ( this.props.current_user != undefined ) {
+      userExists = true
+    }
+    return userExists;
+  }
+
   render() {
     var comments = this.state.comments;
-
-    var createCommentButton = '';
-    if ( this.props.current_user != undefined ) {
-      var createCommentButton = this.renderCreateCommentButton();
-    }
 
     const style = {
       position: 'fixed',
@@ -100,7 +103,7 @@ export default class CommentsContainer extends React.Component {
     return (
       <div>
         <h1>Comments go here</h1>
-        { createCommentButton }
+        { this.userSignedIn() ? this.renderCreateCommentButton() : '' }
 
         <ReactCSSTransitionGroup
           transitionName="slidein"

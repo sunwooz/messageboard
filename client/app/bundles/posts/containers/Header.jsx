@@ -69,15 +69,19 @@ export default class Header extends React.Component {
     )
   }
 
-  render() {
-    var createPostButton = '';
+  userSignedIn() {
+    var userExists = false;
     if ( this.props.current_user != undefined ) {
-      var createPostButton = this.renderCreatePostButton();
+      userExists = true
     }
+    return userExists;
+  }
+
+  render() {
     return (
       <div>
         <h1>Real Estate Message Board</h1>
-        { createPostButton }
+        { this.userSignedIn() ? this.renderCreatePostButton() : '' }
       </div>
     )
   }

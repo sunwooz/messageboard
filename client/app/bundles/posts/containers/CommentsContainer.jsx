@@ -57,7 +57,8 @@ export default class CommentsContainer extends React.Component {
     $.post(create_comment_url,
       {
         comment: comment,
-        header: header
+        header: header,
+        dataType: "json"
       }
     ).success(function(data, textStatus, xhr) {
       this.refs.createcommentbutton.close();

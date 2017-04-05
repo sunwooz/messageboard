@@ -36,8 +36,6 @@ gem 'pygments.rb'
 gem 'friendly_id'
 gem 'rails_12factor'
 
-gem 'selenium-webdriver'
-gem "chromedriver-helper"
 
 
 # Use ActiveModel has_secure_password
@@ -52,6 +50,8 @@ gem "chromedriver-helper"
 group :test do
   gem 'database_cleaner'
   gem "capybara-webkit"
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
   gem 'capybara'
 end
 

@@ -18,7 +18,7 @@ describe User do
 
   context '#full_name' do
     it "should return the correct full name" do
-      user = FactoryGirl.create(:user)
+      user = FactoryGirl.build(:user)
       full_name = user.full_name
       name = user.first_name + ' ' + user.last_name
       expect(full_name).to eq(name)
@@ -27,8 +27,8 @@ describe User do
 
   context '.destroy' do
     it 'should also destroy all associated posts' do
-      user = FactoryGirl.create(:user)
-      post = FactoryGirl.create(:post)
+      user = FactoryGirl.build(:user, { id: 10 })
+      post = FactoryGirl.create(:post, { user_id: 10 })
 
       expect{user.destroy}.to change{Post.count}.by(-1)
     end

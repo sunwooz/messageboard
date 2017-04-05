@@ -3,7 +3,6 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe Post do
-  let(:post) { FactoryGirl.create(:post, title: 'This is a title') }
 
   context 'validations' do
     it { should validate_presence_of :title }
@@ -18,14 +17,15 @@ describe Post do
 
   context '#destroy' do
     it 'should also destroy all associated comments' do
-      post = FactoryGirl.create(:post)
-      comment = FactoryGirl.create(:comment, post_id: post.id)
+      p = FactoryGirl.create(:post)
+      comment = FactoryGirl.create(:comment, post_id: p.id)
 
-      expect{post.destroy}.to change{Comment.count}.by(-1)
+      expect{p.destroy}.to change{Comment.count}.by(-1)
     end
   end
 
   context '#generate_body_html' do
+    let(:post) { FactoryGirl.build(:post) }
 
     it "converts markdown to html" do
       expect(post.generate_body_html).to include('<p>')
@@ -39,7 +39,8 @@ describe Post do
   end
 
   it "correctly slugifies title" do
-    expect(post.slug).to eq('this-is-a-title')
+    post = FactoryGirl.create(:post, { title: 'this is my title' })
+    expect(post.slug).to eq('this-is-my-title')
   end
 
 end

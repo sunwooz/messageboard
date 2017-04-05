@@ -10,7 +10,7 @@ feature "User creates new post", js: true do
       Capybara::Selenium::Driver.new(app, :browser => :chrome)
     end
 
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user, { id: 2, email: 'yangsunwoo@gmail.com', password: 'jjjjjj' })
     @post = FactoryGirl.create(:post)
   }
 

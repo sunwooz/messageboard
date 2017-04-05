@@ -21,11 +21,11 @@ feature "User creates a new Comment", js: true do
       fill_in 'user[email]', with: 'yangsunwoo@gmail.com'
       fill_in 'user[password]', with: 'jjjjjj'
       page.find("#login-user-button").click
+      visit "/"
+      page.click_link 'Post title'
     end
 
     it "should create a new comment", js: true do
-      visit "/"
-      page.click_link 'Post title'
       page.find('button#open-comment-modal-button').click
       fill_in 'body', with: 'test comment'
       page.find('#submit-comment-modal-button').click
@@ -35,8 +35,6 @@ feature "User creates a new Comment", js: true do
 
     context 'when body is empty' do
       it 'should display body cannot be empty error' do
-        visit '/'
-        page.click_link 'Post title'
         page.find('button#open-comment-modal-button').click
         page.find('#submit-comment-modal-button').click
         expect(page).to have_content("Body can't be blank")

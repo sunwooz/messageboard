@@ -18,7 +18,7 @@ describe User do
 
   context '#full_name' do
     it "should return the correct full name" do
-      user = create(:user)
+      user = FactoryGirl.create(:user)
       full_name = user.full_name
       name = user.first_name + ' ' + user.last_name
       expect(full_name).to eq(name)

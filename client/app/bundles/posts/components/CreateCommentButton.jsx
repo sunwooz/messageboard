@@ -16,6 +16,7 @@ export default class CreateCommentButton extends React.Component {
 
   open = () => {
     this.setState({ showModal: true });
+    this.props.handleResetState();
   }
 
   handleChange = (e) => {

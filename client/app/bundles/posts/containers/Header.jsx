@@ -13,13 +13,17 @@ export default class Header extends React.Component {
     }
   }
 
-  handleNewPost = (post) => {
-    this.props.addNewPost(post);
+  resetState = () => {
     this.setState({
       title: '',
       body: '',
       errors: []
     })
+  }
+
+  handleNewPost = (post) => {
+    this.props.addNewPost(post);
+    this.resetState();
   }
 
   handleUserInput = (obj) => {
@@ -64,7 +68,8 @@ export default class Header extends React.Component {
           ref="createpostbutton" 
           onUserInput={this.handleUserInput}
           onFormSubmit={this.handleFormSubmit}
-          errors={this.state.errors} />
+          errors={this.state.errors}
+          handleResetState={this.resetState} />
       </div>
     )
   }

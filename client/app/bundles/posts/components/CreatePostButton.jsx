@@ -15,6 +15,7 @@ export default class CreatePostButton extends React.Component {
   }
 
   open = () => {
+    this.props.handleResetState();
     this.setState({ showModal: true });
   }
 

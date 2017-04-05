@@ -16,6 +16,14 @@ export default class CommentsContainer extends React.Component {
     }
   }
 
+  resetState = () => {
+    this.setState({
+      title: '',
+      body: '',
+      errors: []
+    })
+  }
+
   handleUserInput = (obj) => {
     this.setState(obj);
   }
@@ -77,7 +85,8 @@ export default class CommentsContainer extends React.Component {
           ref="createcommentbutton" 
           onUserInput={this.handleUserInput} 
           onFormSubmit={this.handleFormSubmit}
-          errors={ this.state.errors } />
+          errors={ this.state.errors }
+          handleResetState={this.resetState} />
       </div>
     )
   }

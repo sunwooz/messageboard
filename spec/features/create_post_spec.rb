@@ -42,4 +42,11 @@ feature "User creates new post", js: true do
 
   end
 
+  context 'while not signed in' do
+    it 'should not display create post button' do
+      visit '/'
+      page.should_not have_css('#open-post-modal-button')
+    end
+  end
+
 end

@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import update from 'immutability-helper';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 import CreateCommentButton from '../components/CreateCommentButton';
 import Comment from '../components/Comment';
-
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class CommentsContainer extends React.Component {
 

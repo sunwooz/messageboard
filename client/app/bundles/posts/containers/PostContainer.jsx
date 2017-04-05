@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import ReactOnRails from 'react-on-rails';
+
 import Post from '../components/Post';
 
 export default class PostContainer extends React.Component {

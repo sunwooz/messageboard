@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import PostContainer from '../containers/PostContainer';
-
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import PostContainer from '../containers/PostContainer';
 
 
 export default class PostList extends React.Component {

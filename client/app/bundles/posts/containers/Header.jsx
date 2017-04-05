@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import CreatePostButton from '../components/CreatePostButton';
 import ReactOnRails from 'react-on-rails';
+
+import CreatePostButton from '../components/CreatePostButton';
 
 export default class Header extends React.Component {
 

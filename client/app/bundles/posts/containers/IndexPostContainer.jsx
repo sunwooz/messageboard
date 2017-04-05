@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
+import update from 'immutability-helper';
+
 import Header from '../containers/Header';
 import PostList from '../components/PostList';
-import update from 'immutability-helper';
 
 export default class IndexPostContainer extends React.Component {
 

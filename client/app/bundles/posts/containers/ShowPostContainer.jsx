@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+
 import PostContainer from '../containers/PostContainer';
 import CommentsContainer from '../containers/CommentsContainer';
 

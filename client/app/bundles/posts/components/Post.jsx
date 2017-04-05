@@ -25,5 +25,5 @@ Post.propTypes = {
   post: PropTypes.object.isRequired,
   first_name: PropTypes.string.isRequired,
   last_name: PropTypes.string.isRequired,
-  rawMarkup: PropTypes.func.isRequired
+  rawMarkup: PropTypes.object
 }

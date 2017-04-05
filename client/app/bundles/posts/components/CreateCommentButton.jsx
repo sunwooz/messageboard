@@ -34,7 +34,7 @@ export default class CreateCommentButton extends React.Component {
 
     return (
       <div>
-        <Button onClick={this.open} bsStyle="success">Create Comment</Button>
+        <Button onClick={this.open} bsStyle="success" id='open-comment-modal-button'>Create Comment</Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
@@ -69,7 +69,7 @@ export default class CreateCommentButton extends React.Component {
                 <HelpBlock>Do not proofread</HelpBlock>
               </FormGroup>
 
-              <Button type="submit" bsStyle="success">
+              <Button type="submit" bsStyle="success" id='submit-comment-modal-button'>
                 Submit
               </Button>
             </form>

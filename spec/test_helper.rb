@@ -8,12 +8,8 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'factory_girl_rails'
 
-RSpec.configure do |config|
-  config.infer_spec_type_from_file_location!
-end
 
-
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :selenium
 
 # RSpec.configure do |config|
 #   config.include Rack::Test::Methods

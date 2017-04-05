@@ -3,7 +3,7 @@ FactoryGirl.define do
     id 1
     first_name "john"
     last_name "doe"
-    email Faker::Internet.email
-    password "password"
+    email 'yangsunwoo@gmail.com'
+    password "jjjjjj"
   end
 end

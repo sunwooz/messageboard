@@ -14,7 +14,7 @@ feature "User creates new post", js: true do
     FactoryGirl.create(:post)
   }
 
-  context 'while signed in' do
+  context 'while signed in', js: true do
     before(:each) do
       visit '/'
       click_on 'Login'
@@ -25,7 +25,7 @@ feature "User creates new post", js: true do
       page.find('#open-post-modal-button').click
     end
 
-    it "should create the post and show the new post", js: true do
+    it "should create the post and show the new post" do
       fill_in "title", with: 'This is a unique test'
       fill_in "body", with: 'body text'
       click_button 'Submit'

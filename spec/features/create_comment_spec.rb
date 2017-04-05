@@ -27,11 +27,10 @@ feature "User creates a new Comment", js: true do
       visit "/"
       page.click_link 'Post title'
       page.find('button#open-comment-modal-button').click
-      # fill_in 'body', with: 'test comment'
-      # page.find('#submit-comment-modal-button').click
-      # find('button.close').click
+      fill_in 'body', with: 'test comment'
+      page.find('#submit-comment-modal-button').click
 
-      # expect(page).to have_content('test comment')
+      expect(page).to have_content('test comment')
     end
   end
 

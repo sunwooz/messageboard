@@ -1,7 +1,7 @@
 # spec/models/user_spec.rb
-require 'support/factory_girl'
 require 'test_helper'
 require 'shoulda'
+require 'spec_helper'
 
 
 describe User do

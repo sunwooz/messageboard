@@ -1,7 +1,9 @@
 require 'test_helper'
+require 'spec_helper'
+require 'rails_helper'
 
 describe Post do
-  let(:post) { FactoryGirl.build(:post, title: 'This is a title') }
+  let(:post) { FactoryGirl.create(:post, title: 'This is a title') }
 
   context 'validations' do
     it { should validate_presence_of :title }
@@ -16,8 +18,8 @@ describe Post do
 
   context '#destroy' do
     it 'should also destroy all associated comments' do
-      post = FactoryGirl.build(:post)
-      comment = FactoryGirl.build(:comment, post_id: post.id)
+      post = FactoryGirl.create(:post)
+      comment = FactoryGirl.create(:comment, post_id: post.id)
 
       expect{post.destroy}.to change{Comment.count}.by(-1)
     end
@@ -33,10 +35,11 @@ describe Post do
       post.generate_body_html
       expect(post.body_html).to be_truthy
     end
+
   end
 
   it "correctly slugifies title" do
-    expect(post.slug).to include('this-is-a-title')
+    expect(post.slug).to eq('this-is-a-title')
   end
 
 end

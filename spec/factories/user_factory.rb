@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    id Random.new(42)
+    id 1
     first_name "john"
     last_name "doe"
     email Faker::Internet.email
-    password "secret"
+    password "password"
   end
 end

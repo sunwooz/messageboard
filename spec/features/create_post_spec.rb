@@ -1,29 +1,45 @@
 require 'test_helper'
+require 'spec_helper'
 
 feature "User creates new post", js: true do
-  before(:all) do
-    Capybara.current_driver = :webkit
 
-    visit '/'
-    click_link 'Login'
-    find('a.login-link').click
-    fill_in 'email', with: 'yangsunwoo@gmail.com'
-    fill_in 'password', with: 'jjjjjj'
-    click_link 'Log In'
+  before(:all) {
+    Capybara.current_driver = :selenium
+
+    Capybara.register_driver :selenium do |app|
+      Capybara::Selenium::Driver.new(app, :browser => :chrome)
+    end
+
+    @user = FactoryGirl.create(:user)
+    @post = FactoryGirl.create(:post)
+  }
+
+  context 'while signed in' do
+    before(:each) do
+      visit '/'
+      click_on 'Login'
+      fill_in 'user[email]', with: 'yangsunwoo@gmail.com'
+      fill_in 'user[password]', with: 'jjjjjj'
+      page.find("#login-user-button").click
+    end
+
+    it "should create the post and show the new post", js: true do
+      visit '/'
+      page.find('#open-post-modal-button').click
+      fill_in "title", with: 'This is a unique test'
+      fill_in "body", with: 'body text'
+      click_button 'Submit'
+      page.should have_content('This is a unique test')
+    end
+
+    it 'should show errors if input is blank' do
+      visit '/'
+      page.find('#open-post-modal-button').click
+      click_button 'Submit'
+      page.should have_content("Title can't be blank")
+      page.should have_content("Body can't be blank")
+    end
+
   end
 
-  it "should create the post and show the new post", js: true do
-    visit '/'
-    click_button 'Create Post'
-    fill_in "title", with: 'This is a unique test'
-    fill_in "body", with: 'body text'
-    click_button 'Submit'
-    find('button.close').click
-
-    page.should have_content('unique')
-  end
-
-  it "should correctly slugify" do
-
-  end
-
+end

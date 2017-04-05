@@ -26,8 +26,6 @@ feature "User creates new post", js: true do
     end
 
     it "should create the post and show the new post", js: true do
-      # visit '/'
-      # page.find('#open-post-modal-button').click
       fill_in "title", with: 'This is a unique test'
       fill_in "body", with: 'body text'
       click_button 'Submit'
@@ -35,8 +33,6 @@ feature "User creates new post", js: true do
     end
 
     it 'should show errors if input is blank' do
-      # visit '/'
-      # page.find('#open-post-modal-button').click
       click_button 'Submit'
       page.should have_content("Title can't be blank")
       page.should have_content("Body can't be blank")

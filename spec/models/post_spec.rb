@@ -18,7 +18,7 @@ describe Post do
   context '#destroy' do
     it 'should also destroy all associated comments' do
       p = FactoryGirl.create(:post)
-      comment = FactoryGirl.create(:comment, post_id: p.id)
+      comment = FactoryGirl.create(:comment, { post_id: p.id, id: Faker::Number.number(1) })
 
       expect{p.destroy}.to change{Comment.count}.by(-1)
     end

@@ -25,7 +25,7 @@ feature "User creates new post", js: true do
       page.find('#open-post-modal-button').click
     end
 
-    it "should create the post and show the new post" do
+    it "should create and show the new post" do
       fill_in "title", with: 'This is a unique test'
       fill_in "body", with: 'body text'
       click_button 'Submit'

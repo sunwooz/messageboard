@@ -92,11 +92,7 @@ export default class CommentsContainer extends React.Component {
   }
 
   userSignedIn() {
-    var userExists = false;
-    if ( this.props.current_user != undefined ) {
-      userExists = true
-    }
-    return userExists;
+    return !!this.props.current_user
   }
 
   render() {
